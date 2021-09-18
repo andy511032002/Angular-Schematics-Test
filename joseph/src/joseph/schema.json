@@ -1,0 +1,40 @@
+
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "JosephSchematics",
+      "title": "Joseph Schema",
+      "description": "Generate a file of JavaScript",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the person",
+          "x-prompt": {
+            "message": "Which name would you like?",
+            "type": "list",
+            "items": [
+              { "value": "LeoChen",  "label": "Leo" },
+              { "value": "kevin", "label": "Kevin" },
+              { "value": "mike", "label": "Mike" },
+              { "value": "will", "label": "Will" }
+            ]
+          }
+        },
+        "isGay": {
+          "type": "boolean",
+          "description": "is gay?",
+          "$default": {
+            "$source": "argv",
+            "index": 1
+          },
+          "x-prompt": "r u gay?"
+        },
+        "project": {
+          "type": "string",
+          "description": "Generate in specific Angular CLI workspace project"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
